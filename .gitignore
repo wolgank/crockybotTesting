@@ -1,0 +1,49 @@
+# =========================
+# Archivos de configuración sensibles
+# =========================
+.env
+*.env
+
+# =========================
+# Logs y archivos temporales
+# =========================
+*.log
+logsgymkhanaCB_*.txt
+nohup.out
+
+# =========================
+# Archivos temporales de Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.python-version
+
+# =========================
+# Archivos temporales de Java/Maven
+# =========================
+backend-bot/target/
+backend-bot/bin/
+*.class
+*.jar
+
+# =========================
+# Configuración de IDE/Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Archivos de sistema
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Archivos y carpetas que no deberían subirse
+# =========================
+Bot-discord-eeggcc/antiguo correo de crockybot.txt
+Bot-discord-eeggcc/comando necesario de intends o command que requiere discord

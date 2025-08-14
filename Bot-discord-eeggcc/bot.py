@@ -14,6 +14,7 @@ import io
 
 from PIL import Image
 
+from dotenv import load_dotenv
 import requests
 
 import openpyxl
@@ -34,8 +35,8 @@ from itertools import cycle
 
 from discord.ext.commands.core import command
 
-
-
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 intents = discord.Intents.default()
 
 intents.message_content = True
@@ -798,8 +799,6 @@ for filename in os.listdir('./cogs'):
 
         client.load_extension(f'cogs.{filename[:-3]}')
 
-|
 
-client.run('ODc1MDQxNTMzNDQ1OTYzODI3.YRPv7w.thrA-Zkd-uq85Kxuj2L9AX3UZGg')
-#MTE2NDY1NjExMjcwMDc2MDE2NQ.GWI8rR.FUICGDMB8t5cmya1LWPVX0RVfbqe6QHN346jbw
-#ODc1MDQxNTMzNDQ1OTYzODI3.YRPv7w.thrA-Zkd-uq85Kxuj2L9AX3UZGg
+
+client.run(TOKEN)
