@@ -1,5 +1,6 @@
 services:
   backend:
+    build: ./backend-bot
     image: backend-crocky-bot
     container_name: backend
     ports:
@@ -18,9 +19,10 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-    restart: always  #  Reinicio automático si falla
+    restart: always
 
   frontend:
+    build: ./Bot-discord-eeggcc
     image: frontend-crocky-bot
     container_name: frontend
     depends_on:
@@ -35,7 +37,7 @@ services:
       resources:
         limits:
           memory: "150MB"
-    restart: always  #  Reinicio automático si falla
+    restart: always
 
 networks:
   crocky-network:
