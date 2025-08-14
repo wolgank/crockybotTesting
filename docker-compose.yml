@@ -1,0 +1,42 @@
+services:
+  backend:
+    image: backend-crocky-bot
+    container_name: backend
+    ports:
+      - "8080:8080"
+    networks:
+      - crocky-network
+    deploy:
+      resources:
+        limits:
+          memory: "250MB"
+    environment:
+      - JAVA_OPTS=-Xmx128m  # Limita la memoria de Java (si aplica)
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/comandos/listar/1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: always  #  Reinicio automático si falla
+
+  frontend:
+    image: frontend-crocky-bot
+    container_name: frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - crocky-network
+    environment:
+      - URL=http://backend:8080
+      - ID_ESPECIALIDAD=1
+    deploy:
+      resources:
+        limits:
+          memory: "150MB"
+    restart: always  #  Reinicio automático si falla
+
+networks:
+  crocky-network:
+    driver: bridge

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: backend-bot
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: qwerty123!!!
+    url: jdbc:mysql://localhost:3306/dbcroky
+    username: root
+  flyway:
+    locations:
+    - classpath:/db/migration
+    baseline-on-migrate: true

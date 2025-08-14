@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: backend-bot
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: qwerty123!!!
+    url: jdbc:mysql://host.docker.internal:3306/dbcroky
+    username: root
+    #rds:
+    #password: cC3bZ1wE5xO5wA6l
+    #url: jdbc:mysql://database-crokybot.ciwvug7b8ip8.us-east-1.rds.amazonaws.com:3306/dbcroky
+    #local:
+    #password: enrutaglp.123
+    #url: jdbc:mysql://localhost:3307/bot_db
+    
+  flyway:
+    locations:
+    - classpath:/db/migration
+    baseline-on-migrate: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: bc-tests@pucp.edu.pe #yuzachekka.bot@gmail.com
+    password: BC1enc1as2024 #faiq sbmf vdha wbmg
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  port: 8080
+correo: 
+  remitente: bc-tests@pucp.edu.pe
+  asunto: Verificación de identidad - Consultas PUCP
+  contenido: Tu token de verificación es {token}.
+consulta-personalizada: 
+  remitente: bc-tests@pucp.edu.pe
+  asunto: Consulta Bot EEGGCC - Nueva consulta
+  contenido: "Codigo: {codigo}\nCorreo: {correo}\nConsulta:\n{consulta}"
+numero-intentos-token: 3
